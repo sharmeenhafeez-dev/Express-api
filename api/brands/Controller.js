@@ -7,32 +7,37 @@ const addBrand = async (req, res) => {
 
     const {  BrandName,  BrandImage } = req.body;
 
-    try {
-        await connect(process.env.MONGODB_URL)
-                                                 //database name ,    jo hmny di ya wo name h
-        const checkDuplicate = await Brand.exists({ BrandName: BrandName })
-
-        if (checkDuplicate)
-
-            res.status(409).json({
-
-                message: "Brand already existing"
-
-            })
-        else {                  
+    if (!BrandName || !BrandImage) {
+        res.status(404).json({
+            message:" Brand not Found"
+    
+        })
+        
+    } else {
+    
+        try {
+            await connect(process.env.MONGODB_URL)
+    
             await Brand.create({ BrandName, BrandImage })
             res.status(201).json({
                 message: "Brand created succssfully"
-
+    
+            })
+            
+            
+        } catch (error) {
+            res.status(500).json({
+                message: error.message
+    
             })
         }
-
-    } catch (error) {
-        res.status(500).json({
-            message: error.message
-
-        })
+        
     }
+    
+
+
+
+   
 }
 
 const allBrands = async (req, res) => {
