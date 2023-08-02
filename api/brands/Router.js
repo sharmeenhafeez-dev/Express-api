@@ -2,7 +2,7 @@ const app = require('express')
 
 const router = app.Router()
 
-const {addBrand,allBrands ,Brandbyname,Brandbyid,deleteBrand,updateBrand} = require ('./Controller')
+const {addBrand,allBrands ,Brandbyname,Brandbyid,deleteBrand,updateBrand} = require ('./controller')
 
 
 router.post('/add-brand', addBrand)

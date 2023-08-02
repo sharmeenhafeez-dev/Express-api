@@ -2,7 +2,7 @@ const app = require('express')
 
 const router = app.Router()
 
-const {addCategory,allCatrgories ,Categorybyname,Categorybyid,deleteCategory,updateCategory} = require ('./Controller')
+const {addCategory,allCatrgories ,Categorybyname,Categorybyid,deleteCategory,updateCategory} = require ('./controller')
 
 
 router.post('/add-category', addCategory)

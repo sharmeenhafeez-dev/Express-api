@@ -13,10 +13,10 @@ const mongoose = require("mongoose")
 
 app.use(express.json())
 
-app.use('/api', require('./api/users/Routers'))
-app.use('/api', require('./api/products/Router'))
+app.use('/api', require('./api/users/router'))
+app.use('/api', require('./api/products/router'))
 app.use('/api', require('./api/category/Router'))
-app.use('/api', require('./api/brands/Router'))
+app.use('/api', require('./api/brands/router'))
 
 
 app.listen(port, () => {
